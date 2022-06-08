@@ -11,17 +11,17 @@ class ImageCarousel extends StatelessWidget {
     return CarouselSlider(
       carouselController: carouselController,
       items: [
-        CustomCarouselContainer(
+        CustomCarouselItem(
             context: context, image: AssetImage('images/1.jpg')),
-        CustomCarouselContainer(
+        CustomCarouselItem(
             context: context, image: AssetImage('images/2.jpg')),
-        CustomCarouselContainer(
+        CustomCarouselItem(
             context: context, image: AssetImage('images/3.jpg')),
-        CustomCarouselContainer(
+        CustomCarouselItem(
             context: context, image: AssetImage('images/4.jpg')),
       ],
       options: CarouselOptions(
-        height: 300,
+        height: 200,
         autoPlay: true,
         autoPlayInterval: Duration(seconds: 2),
       ),
@@ -29,7 +29,7 @@ class ImageCarousel extends StatelessWidget {
   }
 }
 
-Widget CustomCarouselContainer({context, image}) {
+Widget CustomCarouselItem({context, image}) {
   return Container(
     width: MediaQuery.of(context).size.width,
     margin: EdgeInsets.symmetric(horizontal: 5.0),
