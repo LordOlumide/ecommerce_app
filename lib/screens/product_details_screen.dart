@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ecommerce_app/components/detail_screen_summary_item.dart';
 
 class ProductDetails extends StatefulWidget {
   final String productName;
@@ -26,7 +27,12 @@ class _ProductDetailsState extends State<ProductDetails> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.pink,
-          title: Text('FashApp'),
+          title: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Text('FashApp'),
+          ),
           actions: [
             IconButton(
               icon: Icon(
@@ -35,10 +41,6 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               onPressed: () {},
             ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.shopping_cart),
-            )
           ],
         ),
         body: ListView(
@@ -200,37 +202,6 @@ class _ProductDetailsState extends State<ProductDetails> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class BottomSummaryItem extends StatelessWidget {
-  final String title;
-  final String answer;
-
-  const BottomSummaryItem({
-    Key? key,
-    required this.widget,
-    required this.title,
-    required this.answer,
-  }) : super(key: key);
-
-  final ProductDetails widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
-      child: Row(children: [
-        Text(
-          '$title:  ',
-          style: TextStyle(color: Colors.grey, fontSize: 15),
-        ),
-        Text(
-          answer,
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-      ]),
     );
   }
 }
