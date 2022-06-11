@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ecommerce_app/components/detail_screen_summary_item.dart';
+import 'package:ecommerce_app/screens/home_screen.dart';
+import 'package:ecommerce_app/components/similar_products_gridview.dart';
+import 'package:ecommerce_app/constants.dart';
 
 class ProductDetails extends StatefulWidget {
   final String productName;
@@ -27,9 +30,11 @@ class _ProductDetailsState extends State<ProductDetails> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.pink,
+          centerTitle: true,
           title: InkWell(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
             },
             child: Text('FashApp'),
           ),
@@ -164,17 +169,15 @@ class _ProductDetailsState extends State<ProductDetails> {
             const Divider(),
 // =========== The text details ===========
             const Padding(
-              padding: EdgeInsets.fromLTRB(15, 10, 15, 5),
-              child: Text('Product description:',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-            ),
+                padding: EdgeInsets.fromLTRB(15, 10, 15, 5),
+                child: Text(
+                  'Product description:',
+                  style: kSubtitleTextStyle,
+                )),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Text(
                 widget.productDescription,
-                style: TextStyle(
-                  color: Colors.grey,
-                ),
               ),
             ),
             const Divider(),
@@ -198,6 +201,20 @@ class _ProductDetailsState extends State<ProductDetails> {
                   answer: 'Brand new',
                 ),
               ],
+            ),
+            Divider(),
+
+// =============== The similar products section ========
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                'Similar Products',
+                style: kSubtitleTextStyle,
+              ),
+            ),
+            Container(
+              height: 400,
+              child: SimilarProducts(),
             ),
           ],
         ),

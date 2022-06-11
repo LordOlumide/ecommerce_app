@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'drawer_tiles.dart';
+import 'package:ecommerce_app/screens/cart_screen.dart';
 
 class HomeScreenDrawer extends StatelessWidget {
   const HomeScreenDrawer({Key? key}) : super(key: key);
@@ -20,41 +20,73 @@ class HomeScreenDrawer extends StatelessWidget {
               color: Colors.pink,
             ),
           ),
-          DrawerTile(
-            text: 'Home',
-            icon: Icons.home,
+          InkWell(
             onTap: () {},
+            child: const ListTile(
+              leading: Icon(
+                Icons.home,
+                color: Colors.pink,
+              ),
+              title: Text('Home'),
+            ),
           ),
-          DrawerTile(
-            text: 'My Account',
-            icon: Icons.person,
+          InkWell(
             onTap: () {},
+            child: const ListTile(
+              leading: Icon(
+                Icons.person,
+                color: Colors.pink,
+              ),
+              title: Text('My Account'),
+            ),
           ),
-          DrawerTile(
-            text: 'My Orders',
-            icon: Icons.shopping_basket,
+          InkWell(
             onTap: () {},
+            child: const ListTile(
+              leading: Icon(
+                Icons.shopping_basket,
+                color: Colors.pink,
+              ),
+              title: Text('My Orders'),
+            ),
           ),
-          DrawerTile(
-            text: 'Categories',
-            icon: Icons.category,
-            onTap: () {},
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CartScreen()));
+            },
+            child: const ListTile(
+              leading: Icon(
+                Icons.shopping_cart,
+                color: Colors.pink,
+              ),
+              title: Text('Shopping Cart'),
+            ),
           ),
-          DrawerTile(
-            text: 'Favourite',
-            icon: Icons.favorite,
+          InkWell(
             onTap: () {},
+            child: const ListTile(
+              leading: Icon(
+                Icons.favorite,
+                color: Colors.pink,
+              ),
+              title: Text('Favourite'),
+            ),
           ),
           Divider(),
-          DrawerTile(
-            text: 'Settings',
-            icon: Icons.settings,
+          InkWell(
             onTap: () {},
+            child: const ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+            ),
           ),
-          DrawerTile(
-            text: 'About',
-            icon: Icons.help,
+          InkWell(
             onTap: () {},
+            child: const ListTile(
+              leading: Icon(Icons.help),
+              title: Text('About'),
+            ),
           ),
         ],
       ),

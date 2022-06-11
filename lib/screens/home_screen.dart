@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'components/home_screen_drawer.dart';
-import 'components/image_carousel.dart';
-import 'components/horizontal_list.dart';
-import 'components/products_gridview_builder.dart';
+import '../components/home_screen_drawer.dart';
+import '../components/image_carousel.dart';
+import '../components/horizontal_listview.dart';
+import '../components/products_gridview_builder.dart';
+import 'cart_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -27,7 +28,10 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {},
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CartScreen()));
+            },
             icon: Icon(Icons.shopping_cart),
           )
         ],
@@ -40,15 +44,15 @@ class HomeScreen extends StatelessWidget {
             padding: EdgeInsets.all(5),
             child: Text(
               'Categories',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
           ),
           horizontalList,
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+            padding: EdgeInsets.all(5),
             child: Text(
               'Recent Products',
-              style: TextStyle(fontSize: 15),
+              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
           ),
           Container(
