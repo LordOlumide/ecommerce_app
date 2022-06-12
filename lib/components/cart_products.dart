@@ -135,25 +135,20 @@ class SingleCartProduct extends StatelessWidget {
 
 // ========== This section is for the quantity ===========
         trailing: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(
-              padding: EdgeInsets.all(0),
-              constraints: BoxConstraints(
-                minWidth: 15,
-                minHeight: 15
+            Flexible(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_drop_up),
               ),
-              onPressed: () {},
-              icon: Icon(Icons.arrow_drop_up),
             ),
             Text('$cart_product_quantity'),
-            IconButton(
-              padding: EdgeInsets.all(0),
-              constraints: BoxConstraints(
-                  minWidth: 15,
-                  minHeight: 15
+            Flexible(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_drop_down),
               ),
-              onPressed: () {},
-              icon: Icon(Icons.arrow_drop_down),
             ),
           ],
         ),
