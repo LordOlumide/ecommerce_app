@@ -37,7 +37,8 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       drawer: drawer,
-      body: ListView(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           carousel,
           const Padding(
@@ -55,8 +56,7 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
           ),
-          Container(
-            height: 350,
+          Flexible(
             child: products,
           ),
         ],
